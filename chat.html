@@ -1,43 +1,28 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title></title>
-  <meta type="description" content="">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<style>
-
-</style>
+  <title>Socket.IO Chat Example</title>
+  <link rel="stylesheet" href="chat.css">
 </head>
 <body>
-  <header><h1></h1></header>
-  <section>
-    <ul id="todolist"></ul>
-    <form action="#" method="post">
-      <div>
-        <label for="newitem"></label>
-        <input type="text" name="newitem" id="newitem" 
-               placeholder="new item" />
-        <input type="submit" value="Add" />
+  <ul class="pages">
+    <li class="chat page">
+      <div class="chatArea">
+        <ul class="messages"></ul>
       </div>
-    </form>
-  </section>
-  <footer>
-  </footer>
-<script>
-var todo = document.querySelector( '#todolist' ),
-    form = document.querySelector( 'form' ),
-    field = document.querySelector( '#newitem' );
-    
-form.addEventListener( 'submit', function( ev ) {
-  var text = field.value;
-  if ( text !== '' ) {
-    todo.innerHTML += '<li>' + text + '</li>';
-    field.value = '';
-    field.focus();
-  }
-  ev.preventDefault();
-}, false);
-</script>
+      <input class="inputMessage" placeholder="Type here..."/>
+    </li>
+    <li class="login page">
+      <div class="form">
+        <h3 class="title">What's your nickname?</h3>
+        <input class="usernameInput" type="text" maxlength="14" />
+      </div>
+    </li>
+  </ul>
+
+  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="/socket.js"></script>
+  <script src="/main.js"></script>
 </body>
 </html>
