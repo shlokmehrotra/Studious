@@ -1,0 +1,15 @@
+{
+  "name": "Studious",
+  "version": "0.0.1",
+  "description": "A chat example to showcase how to use `socket.io` with a static `express` server with `async` for control flow.",
+  "main": "server.js",
+  "repository": "",
+  "author": "Shlok Mehrotra",
+  "dependencies": {
+    "async": "~0.2.8",
+    "express": "~3.2.4",
+    "socket.io": "~0.9.14",
+    "jade": "~1.11.0",
+    "sjcl": "~1.0.3"
+  }
+}
