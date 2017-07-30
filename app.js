@@ -18,7 +18,7 @@
   document.addEventListener('mouseenter', setPosition);
 
   // last known position
-  var pos = { x: 0, y: 0 };
+  var pos = { x: 0, y: 0};
 
   // new position from mouse events
   function setPosition(e) {

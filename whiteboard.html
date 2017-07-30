@@ -7,14 +7,18 @@
           Studious - WhiteBoard
       </title>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+      <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+      <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
   </head>
 <body>
  
  
   <input id="hex" placeholder="Enter Color" >
   <canvas id="draw"></canvas>
-  <input type = "button" onclick = "location.reload()" value = "Reload">
+  <input type = "button" onclick = "location.reload()" value = "Erase">
   <script src="app.js"></script>
+  
 
 
  
@@ -23,7 +27,16 @@
           width: 150px;
           height: 30px;
           border-radius: 5px;
-        border-color: black;
+          border-color: black;
+          border-left: 5px;
+          }
+          canvas{
+            border-color: black;
+            height: 360%
+            margin-top: 0px;
+            background-color: FloralWhite;
+            border-width: 5px;
+            cursor: crosshair;
           }
           ::placeholder{
             font-family: arial;
@@ -35,5 +48,6 @@
             
           }
   </style>
+
 </body>
   </html>

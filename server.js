@@ -2,7 +2,7 @@ var sjcl = require('sjcl');
 //var nodemailer = require('nodemailer);
 var jade = require('jade');
 var express = require('express');
-var mysql = require('mysql');
+//var mysql = require('mysql');
 console.log("Connected to database");
 var app = express();
 app.configure(function(){

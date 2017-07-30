@@ -28,60 +28,58 @@
       var mailcheck;
       //var agecheck;
       function usrname(){
-      //The submit variable is important. It is originally set to true. If the user signs any of the fields incorrectly, submit is set to false.
-      //At the end, the program checks to see if submit is still true. If it is, then only will the user be directed to the signin page.
-      //If not, the user will be notified on what he didn't do correctly.
-      var arrayusername = [];
-      var lettercheck_username = document.getElementById("username").value;
-      //This part will check to make sure there are no spaces in the username through an array called arrayusername
-      for(var i=0;i<lettercheck_username.length;i++){
-      if (lettercheck_username[i]==' '){
-      usernamecheck = false;
-      //If there is a space,....
-      document.getElementById("username").value = "";
-      document.getElementById("username").style.borderColor = '#ff1a1a';
-      document.getElementById("message").value = ("Usernames cannot contain spaces!");
-      arrayusername = [];
-      lettercheck_username = "";
-      break;
-      }
-      else{
-      //There are no spaces in the username
-      arrayusername.push(lettercheck_username[i]);
-      }
-      }
-      if (arrayusername.length <= 5){
-      //If the length of the username is less than or equal to 5 the user will be notified that if he wants to sign up, his username must be longer
-      document.getElementById("username").style.borderColor = '#ff1a1a';
-      document.getElementById("message").value =("Username is too short! It should be five characters or more");
-      document.getElementById("username").value = "";
-      usernamecheck = false;
-      }
-      else{
-      var data = {};
-      data.title = "Userinfo";
-      data.username = document.getElementById("username").value;
-      $.ajax({
-      type: 'post',
-      data: (data),
-      url: '/usernameinfo',
-      success: function(data){
-      //console.log(JSON.stringify(data))
-      }
-      }).done(function(data){
-      if(data == 'yes'){
-      document.getElementById("username").style.borderColor = "#ff1a1a" ;
-      usernamecheck = false;
-      document.getElementById("message").value =('Username already exists');
-      }
-      else{
-      }
-      })
-      usernamecheck = true;
-      //User types in password correctly
-      document.getElementById("username").style.borderColor = '#66ff66';
-      }
-      }
+        //The submit variable is important. It is originally set to true. If the user signs any of the fields incorrectly, submit is set to false.
+        //At the end, the program checks to see if submit is still true. If it is, then only will the user be directed to the signin page.
+        //If not, the user will be notified on what he didn't do correctly.
+        var arrayusername = [];
+        var lettercheck_username = document.getElementById("username").value;
+        //This part will check to make sure there are no spaces in the username through an array called arrayusername
+        for(var i=0;i<lettercheck_username.length;i++){
+          if (lettercheck_username[i]==' '){
+            usernamecheck = false;
+            //If there is a space,....
+            document.getElementById("username").value = "";
+            document.getElementById("username").style.borderColor = '#ff1a1a';
+            document.getElementById("message").value = ("Usernames cannot contain spaces!");
+            arrayusername = [];
+            lettercheck_username = "";
+            break;
+          }
+          else{
+            //There are no spaces in the username
+            arrayusername.push(lettercheck_username[i]);
+          }
+        }
+        if (arrayusername.length <= 5){
+          //If the length of the username is less than or equal to 5 the user will be notified that if he wants to sign up, his username must be longer
+          document.getElementById("username").style.borderColor = '#ff1a1a';
+          document.getElementById("message").value =("Username is too short! It should be five characters or more");
+          document.getElementById("username").value = "";
+          usernamecheck = false;
+        }
+        else{
+          var data = {};
+          data.title = "Userinfo";
+          data.username = document.getElementById("username").value;
+          $.ajax({
+          type: 'post',
+          data: (data),
+          url: '/usernameinfo',
+          success: function(data){
+          //console.log(JSON.stringify(data))
+        }
+        }).done(function(data){
+        if(data == 'yes'){
+          document.getElementById("username").style.borderColor = "#ff1a1a" ;
+          usernamecheck = false;
+          document.getElementById("message").value =('Username already exists');
+        }
+        })
+        usernamecheck = true;
+        //User types in password correctly
+        document.getElementById("username").style.borderColor = '#66ff66';
+        }
+        }
       function usrpass(){
       var password1 = document.getElementById("password").value;
       if(password1.length <= 6){
@@ -139,13 +137,13 @@
       //Regular Expressions
       var strmail = lettercheck_mail;
       //My regular expression for checking email
-      var p = strmail.search(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/igm);
+      var p = strmail.search(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
       //If regular expression is not matched than p = -1
       if(p==-1){
       mailcheck = false;
       //If p=-1, then notify the user that the email is not valid
       document.getElementById("email").value = "";
-      document.getElementById("message").value =("The email you entered is not valid!");
+      document.getElementById("message").value =("The email you entered is not valid!.");
       document.getElementById("email").style.borderColor = '#ff1a1a';
       }
       else{
@@ -156,24 +154,23 @@
       }
       }
       function usrfinish(){
-      console.log(usernamecheck);
-      console.log(userpassword);
-      console.log(passwordcheck);
-      console.log(mailcheck);
-      if(usernamecheck == true && userpassword == true && passwordcheck == true && mailcheck == true){
-      //document.getElementById("password").value = sjcl.encrypt("password123", document.getElementById("password").value);
-      //document.getElementById("password2").value = sjcl.encrypt("password123", document.getElementById("password2").value);
-      document.getElementById("message").value =("Thank you for registering. Please verify your account via your email");
-      var form = document.getElementById("myform");
-      form.method = "post";
-      form.action = "/signin";
-      form.submit();
-      }
-      else{
-      alert("Nope");
-      document.getElementById("message").value =("");
-      window.event.preventDefault();
-      }
+        console.log(usernamecheck);
+        console.log(userpassword);
+        console.log(passwordcheck);
+        console.log(mailcheck);
+        if(usernamecheck == true && userpassword == true && passwordcheck == true && mailcheck == true){
+        //document.getElementById("password").value = sjcl.encrypt("password123", document.getElementById("password").value);
+        //document.getElementById("password2").value = sjcl.encrypt("password123", document.getElementById("password2").value);
+          document.getElementById("message").value =("Thank you for registering. Please verify your account via your email");
+          var form = document.getElementById("myform");
+          form.method = "post";
+          form.action = "/signin";
+          form.submit();
+        }
+        else{
+          document.getElementById("message").value =("The information you entered is either invalid or incorrect");
+          window.event.preventDefault();
+        }
       }
     </script>
   </head>
