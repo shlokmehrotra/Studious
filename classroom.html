@@ -1,151 +1,124 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
+<html>
+  <head>
+    <title>Classroom</title>
+  </head>
+  <body>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
-    <title>Studious</title>
+<div id='menu-nav'>
+  <div id='navigation-bar'>
+    <ul>
+      <li class='menu-sub-nav current-item'><a href='landing.html'><i class='fa fa-home'></i><span>Home</span></a></li>
+      <li class='menu-sub-nav'><a href='chat.html' target="_blank"><i class='fa fa-cogs'></i><span>Chat</span></a></li>
+      <li class='menu-sub-nav'><a href='whiteboard.html' target="_blank"><i class='fa fa-user'></i><span>Whiteboard</span></a></li>
+      <li class='menu-sub-nav'><a href='widgets.html' target="_blank"><i class='fa fa-book'></i><span>Widgets</span></a></li>
+      <li class='menu-sub-nav' id='searchbox'><a href='landing.html'><i class='fa fa-search'></i><span>Users</span></a></li>
+    </ul>
+  </div>
+  <div id='search-bar'>
+ <form action='nothing'>
+      <input type='text' name='search' id='searchfld' placeholder='Enter your query and hit enter'/>
+    </form>
+  </div>
+</div>
+<div class="notes">
+    <textarea class="text" rows="40" cols="50" placeholder="Type in notes here!"></textarea></textarea>
+</div>
+    <style>
+      body {
+  background:#34495e;
+  font-family:'Roboto', sans-serif;
+}
+.notes{
+    margin-left: 850px;
+    margin-top: ;
+    /*background: url('https://tr1.cbsistatic.com/hub/i/2015/05/07/d29f6f9b-f4ad-11e4-940f-14feb5cc3d2a/03052013figure-c.gif');*/
+    
+}
+#menu-nav {
+  float:left;
+  width:100%; height:auto;
+  margin:30px 0;
+  background-color:#ecf0f1;
+  border-radius:4px;
+  overflow:hidden;
+  box-shadow:0 0 5px rgba(0,0,0,0.3);
+  margin-top: 0px;
+}
 
-    <!-- Bootstrap Core CSS -->
-    <link href="bootstrap.min.css" rel="stylesheet">
+/* navigation bar */
+#navigation-bar {
+  width:100%;
+}
+  
+#navigation-bar ul {
+    margin:0; padding:0;
+    list-style:none;
+    width:100%;
+    border-radius:4px;
+    overflow:hidden;
+}
+  
+#navigation-bar li {
+    float:left;
+    padding:0; margin:0;
+    width:20%;
+}
+  
+#navigation-bar a {
+    color:#848484;
+    font-size:20px; 
+    text-decoration:none; text-align:center;
+    width:100%;
+    padding:20px 0;
+    display:block; position:relative;
+    transition: all 0.3s ease;
+}
 
-    <!-- Custom CSS -->
-    <link href="modern-business.css" rel="stylesheet">
+#navigation-bar a:hover {color:#e74c3c;}
+/*  #navigation-bar li:first-child a {border-radius:4px 0 0 4px;}
+#navigation-bar li:last-child a {border-radius:0 4px 4px 0;}  */
+#navigation-bar a:before {
+  content:'';
+  transition:all .4s ease-in-out;
+  position:absolute; right:50%; left:50%; bottom:0;
+  display:block;
+  height:2px;
+  background-color:#e74c3c;
+} 
+#navigation-bar li:hover a:before, #navigation-bar a:hover:before {right:0; left:0;}
+#navigation-bar span {display:block;}
 
-    <!-- Custom Fonts -->
-    <link href="font-awesome.min.css" rel="stylesheet" type="text/css">
+/* search bar */
+#search-bar {display:none; width:100%; border-bottom:3px solid #e74c3c; border-radius:4px;}
+form {width:90%; margin:10px auto;}
+input#searchfld {
+  width:90%; padding:10px 5%; margin:0;
+  text-align:center; outline:none;
+  border-radius:4px; border:1px solid #e74c3c;
+  font:normal 300 18px 'Roboto',sans-serif; color:#888;
+  transition:box-shadow 0.5s ease;
+}
+input#searchfld:focus, input#searchfld:active {
+  box-shadow:0 0 10px #e74c3c;
+}
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    </style>
+    <script>
+      $(function() {
+  hideandshow($("#searchbox"),$("#search-bar"),300);
+});
 
-</head>
+function hideandshow(e,n,a) {
+  var c=!1;
+  e.click(function(e) {
+    c?n.slideUp(a):n.slideDown(a);
+    c=!c;
+    e.preventDefault();
+  })
+}
+    </script>
+  </body>
+    </html>
 
-<body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="landing.html" id="hilarious">STUDIOUS<strong>DESK</strong></a>
-            </div>
-            
-            <style>
-            </style>
-        
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-        <!-- /.row -->
-        
-        <div class="left">
-        <button id="hilarious"class="btn" type="button">UPLOAD IMAGE</button>
-        </div>
-        
-        <div class="right">
-        <button id="chat" class="btn" type="button"><a class="room" href="chat.html" target="_blank">CHAT</a></button>
-        <button id="whiteboard" class="btn" type="button"><a class="room" href="whiteboard.html" target="_blank">WHITEBOARD</a></button>
-        <button id="classroom" class="btn" type="button"><a class="room" href="classroom.html" target="_blank">CLASSROOM</a></button>
-        <button id="user" class="btn" type="button"><a class="room" href="landing.html" target="_blank">USER</a></button>
-        <textarea class="text" rows="20" cols="35">WRITE YOUR NOTES HERE!</textarea>
-        </div>
-        
-        <style>
-        
-            .right{
-                background-color:rgba(0,0,0,0.5);
-                float: right;
-                margin-top: -40px;
-                margin-right: 0px;
-                height: 800px;
-                width: 200px;
-            }
-            
-            .left{
-                background-color:rgba(0,0,0,0.5);
-                float: left;
-                margin-top: -40px;
-                margin-left: 0px;
-                height: 800px;
-                width: 200px;
-            }
-            
-            
-            .btn, .room{
-                width: 150px;
-                height: 40px;
-                margin-left: 25px;
-                margin-right: 25px;
-                margin-bottom: 20px;
-                margin-top: 80px;
-                text-align:center;
-                align-items: center;
-                background-color: #337ab7;
-                color: white;
-            }
-            
-            #whiteboard, #classroom, #user{
-                margin-top: 5px;
-            }
-            
-            .room:visited{
-                color: white;
-            }
-            
-            textarea{
-                margin-top: 10px;
-                background-color:#337ab7;
-                opacity:0.8;
-                border:none;
-                border-radius:5px;
-            }
-        
-            
-        </style>
-        
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                </div>
-            </div>
-        </footer>
-
-    </div>
-    <!-- /.container -->
-
-    <!-- jQuery -->
-    <script src="jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="bootstrap.min.js"></script>
-
-    <!-- Script to Activate the Carousel -->
-
-</body>
-
-</html>
