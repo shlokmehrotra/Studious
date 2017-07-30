@@ -1,5 +1,4 @@
 var sjcl = require('sjcl');
-var randomstring = require('randomstring');
 //var nodemailer = require('nodemailer);
 var jade = require('jade');
 var express = require('express');

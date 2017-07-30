@@ -13,8 +13,8 @@
   <div id='navigation-bar'>
     <ul>
       <li class='menu-sub-nav current-item'><a href='landing.html'><i class='fa fa-home'></i><span>Home</span></a></li>
-      <li class='menu-sub-nav'><a href='chat.html' target="_blank"><i class='fa fa-cogs'></i><span>Chat</span></a></li>
-      <li class='menu-sub-nav'><a href='whiteboard.html' target="_blank"><i class='fa fa-user'></i><span>Whiteboard</span></a></li>
+      <li class='menu-sub-nav'><a href='chat.html' target="_blank"><i class='fa fa-user'></i><span>Chat</span></a></li>
+      <li class='menu-sub-nav'><a href='whiteboard.html' target="_blank"><i class='fa fa-book'></i><span>Whiteboard</span></a></li>
       <li class='menu-sub-nav'><a href='landing.html' target="_blank"><i class='fa fa-book'></i><span>Users</span></a></li>
     
     </ul>
@@ -26,6 +26,7 @@
   <button id="btnPrev" type="button">Prev</button>
 	  <button id="btnNext" type="button">Next</button>
   <div id="divCal"></div>
+</div>
 </div>
   <style>
    body{
@@ -52,14 +53,18 @@ img {
 a {
   text-decoration: none;
 }
+.calendar{
+  margin-top: 120px;
+}
 .calendar-wrapper {
   width: 360px;
+  height: 540px;
   margin: 3em auto;
   padding: 2em;
   border: 1px solid #dcdcff;
   border-radius: 5px;
   background: #fff;
-  margin-top: 500px;
+  margin-top: -640px;
   margin-left: 0px;
 }
 table {
@@ -131,6 +136,8 @@ thead td {
 
   #text{
     margin-left: 930px;
+    border-color: #DCDcff;
+    border-radius: 5px;
   }
   ::placeholder{
     font-size: 15px;
